@@ -4,7 +4,7 @@ const server = require("http").Server(app);
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 
-const { v4: uuidv4 } = require("uuid")
+const { v4: uuidv4 } = require("uuid");
 
 const io = require("socket.io")(server, {
     cors: {
@@ -36,4 +36,4 @@ io.on("connection", (socket) => {
     });
 });
 
-server.listen(3030);
+server.listen(process.env.PORT || 3030);
